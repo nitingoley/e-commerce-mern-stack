@@ -1,0 +1,17 @@
+/* index.css */
+body.light {
+    background-color: white;
+    color: black;
+  }
+  
+  body.dark {
+    background-color: black;
+    color: white;
+  }
+  
+  button {
+    padding: 10px;
+    margin: 20px;
+    cursor: pointer;
+  }
+  
