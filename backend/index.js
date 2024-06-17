@@ -20,7 +20,13 @@ config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-1whq-vercel.app"],
+        mehtods: ["POST", "GET"],
+        credentials: true,
+    }   
+));
 
 app.listen(process.env.PORT, () => console.log(`Server running on ${process.env.PORT} PORT`));
 
