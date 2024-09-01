@@ -1,36 +1,15 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "nuxt.config.js",
-      "use": "@nuxtjs/vercel-builder",
-      "config": {
-        "serverFiles": ["server-middleware/**"]
+    "version": 2,
+    "builds": [
+      {
+        "src": "./index.js",
+        "use": "@vercel/node"
       }
-    },
-    {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/contents/(?<id>[^/]+)",
-      "dest": "/api/contents/[id].js?id=$id",
-      "methods": ["GET", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Methods": "GET",
-        "Access-Control-Allow-Headers": "Content-Type"
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "./index.js"
       }
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1.js",
-      "methods": ["GET", "OPTIONS"],
-      "headers": {
-        "Access-Control-Allow-Methods": "GET",
-        "Access-Control-Allow-Headers": "Content-Type"
-      }
-    }
-  ]
-}
+    ]
+  }
